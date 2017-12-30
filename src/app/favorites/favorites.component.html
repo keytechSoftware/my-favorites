@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="table-responsive">
+      <div class="col-md-12">
+        <h4>Favoriten von "{{currentUserFullName}}"</h4>
+        <div  class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-filter" ></i></span>
+          <input id="tableFilterString" type="text" class="form-control" onkeyup="filterTable('favoritesTable',0)" placeholder="Favoriten filtern...">
+        </div>
+
+        <table class="table table-condensed table-hover" id ="favoritesTable"> 
+
+            <tr *ngFor="let entry of favorites">
+                
+                  <td *ngIf="!entry.value.TargetElementKey">
+                    <i class="glyphicon glyphicon-folder-open" style="margin-right: 10px;color:lightslategray"></i>
+                    {{entry.value.EntryName}}
+                  </td>
+              
+                <td *ngIf="entry.value.TargetElementKey">
+                  <i *ngIf="entry.value.TargetElementKey.includes('_MI:')" class="glyphicon glyphicon-cog" style="margin-left: 30px; color:slategray"></i>
+                  <i *ngIf="entry.value.TargetElementKey.includes('_WF:')" class="glyphicon glyphicon-folder-close" style="margin-left: 30px; color:goldenrod"></i>
+                  <i *ngIf="!entry.value.TargetElementKey.includes('_MI:') && !entry.value.TargetElementKey.includes('_WF:')" class="glyphicon glyphicon-file" style="margin-left: 30px; color:cornflowerblue"></i>
+                  <a [routerLink]="['/element-info']" [queryParams]="{elementKey: entry.value.TargetElementKey }">
+                    {{entry.value.EntryName}}</a>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+  </div>
+</div>
