@@ -23,9 +23,12 @@ export class FavoritesComponent implements OnInit {
     this.getFavorites();
   }
 
-  // ------------------------------------------------------------------
-  // Determines the user's favorites
-  // ------------------------------------------------------------------
+
+  /**
+   * Determines the user's favorites
+   * 
+   * @memberof FavoritesComponent
+   */
   async getFavorites() { 
     
     let username: string = Tools.getStorageValue('currentUser');

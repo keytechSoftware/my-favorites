@@ -1,8 +1,13 @@
 export class Tools {
 
-  // ------------------------------------------------------------------
-  // Converts the specified byte array to a Base64 string
-  // ------------------------------------------------------------------
+/**
+ * Converts the specified byte array to a Base64 string
+ * 
+ * @static
+ * @param {any} arrayBuffer 
+ * @returns 
+ * @memberof Tools
+ */
   static arrayBufferToBase64 (arrayBuffer) {
     var binary = '';
     var bytes = new Uint8Array (arrayBuffer);
@@ -14,9 +19,14 @@ export class Tools {
     return window.btoa (binary);
   }
 
-  // ------------------------------------------------------------------
-  // Converts the specified EPOCH string to a date in the current time zone
-  // ------------------------------------------------------------------
+  /**
+   * Converts the specified EPOCH string to a date in the current time zone
+   * 
+   * @static
+   * @param {any} epoch 
+   * @returns 
+   * @memberof Tools
+   */
   static getDateFromEpoch (epoch){
 
     var date = new Date(0); // Create date for EPOCH start (January 1st 1970 00:00:00 UTC)
@@ -34,9 +44,14 @@ export class Tools {
     return date;
   }
 
-  // ------------------------------------------------------------------
-  // Formats the date of the current time zone in the browser's language
-  // ------------------------------------------------------------------
+/**
+ * Formats the date of the current time zone in the browser's language
+ * 
+ * @static
+ * @param {Date} date 
+ * @returns 
+ * @memberof Tools
+ */
   static getFormatedDateString (date: Date) {
     let formatedDate: string = '';
 
@@ -54,9 +69,14 @@ export class Tools {
     return formatedDate;
   }
   
-  // ------------------------------------------------------------------
-  // Manage session variables
-  // ------------------------------------------------------------------
+  /**
+   * Manage session variables
+   * 
+   * @static
+   * @param {string} key 
+   * @param {string} value 
+   * @memberof Tools
+   */
   static setStorageValue(key: string, value: string){
     window.sessionStorage.setItem(key, value);
   }
